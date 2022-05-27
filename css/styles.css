@@ -41,6 +41,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  --bs-ean-color: #d046bc;
   --bs-primary-rgb: 189, 93, 56;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -237,7 +238,7 @@ sup {
 }
 
 a {
-  color: #bd5d38;
+  color: var(--bs-ean-color);
   text-decoration: underline;
 }
 a:hover {
@@ -7719,7 +7720,8 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  /* color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important; */
+  color: var(--bs-ean-color) !important;
 }
 
 .text-secondary {
@@ -7810,7 +7812,8 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  /* background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important; */
+  background-color: var(--bs-ean-color) !important;
 }
 
 .bg-secondary {
