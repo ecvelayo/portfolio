@@ -1,0 +1,22 @@
+.CommentCard {
+    width: 400px;
+}
+
+.image {
+    height: 95px;
+    background-color: aqua;
+}
+
+.content {
+    height: 80px;
+}
+
+.borderName {
+    border: 1px solid red;
+    height: 30px;
+}
+
+.borderComment {
+    border: 1px solid yellow;
+    height: 65px;
+}
