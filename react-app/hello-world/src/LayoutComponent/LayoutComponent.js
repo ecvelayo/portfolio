@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './LayoutComponent.module.css';
 import AppHeader from '../AppHeader/AppHeader';
 import AppFooter from '../AppFooter/AppFooter';
+import AppNavbar from '../AppNavbar/AppNavbar';
 
 class LayoutComponent extends Component {
     arrangedChildren = [];
@@ -31,9 +32,10 @@ class LayoutComponent extends Component {
           <div>
             <AppHeader>
             </AppHeader>
-            <div className={styles.test}>
+            <AppNavbar></AppNavbar>
+            {/* <div className={styles.test}>
                 {this.arrangedChildren}
-            </div>
+            </div> */}
             <AppFooter>
 
             </AppFooter>
