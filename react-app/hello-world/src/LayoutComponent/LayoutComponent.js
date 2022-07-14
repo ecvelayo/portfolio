@@ -3,33 +3,25 @@ import styles from './LayoutComponent.module.css';
 import AppHeader from '../AppHeader/AppHeader';
 import AppFooter from '../AppFooter/AppFooter';
 import AppNavbar from '../AppNavbar/AppNavbar';
+import App from '../App';
 
-class LayoutComponent extends Component {
+class LayoutComponent extends App {
     arrangedChildren = [];
     firstElementIndex = 0;
     constructor(props) {
         super(props);
     }
 
-    filterChildren() {
-      this.props.children.map((child) => {
-        const elementFirst = child.props.class.split(' ').indexOf('first');
-        if (elementFirst !== -1){
-          if (this.arrangedChildren.indexOf(child) === -1){
-            this.arrangedChildren.push(child);
-            this.firstElementIndex = elementFirst;
-          }
-        };
-      });
+    goToHeader = () => {
+      window.location = "/header";
     }
 
     render() {
-        this.filterChildren();
-        if (this.arrangedChildren.indexOf(this.props.children[0]) === -1){
-          this.arrangedChildren.push(this.props.children[0]);
-        };
+      this.showMessage();
         return (       
           <div>
+            <p>{this.message}</p>
+            <button className='btn btn-primary' onClick={this.goToHeader}>Go to Header</button>
             <AppHeader>
             </AppHeader>
             <AppNavbar></AppNavbar>

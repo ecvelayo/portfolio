@@ -1,28 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import CommentCard from './CommentCard/CommentCard';
+import React from 'react';
 
+class App extends React.Component {
+  message = 'My name is Ean and I like cars.';
+  constructor(props){
+    super(props);
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <CommentCard name="Anya"/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  showMessage() {
+    console.log('Message called');
+  }
 }
+
 
 export default App;
