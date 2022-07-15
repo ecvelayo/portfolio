@@ -20,7 +20,8 @@ class App extends React.Component {
         <Routes>
           <Route path="/">
             <Route index element={<LayoutComponent></LayoutComponent>}></Route>
-            <Route path="header" element={<AppHeader></AppHeader>}></Route>
+            {/* <Route path="header" element={<AppHeader></AppHeader>}></Route> */}
+            <Route path="/:username" element={<AppHeader/>}></Route>
             <Route path="*" element={<AppFooter></AppFooter>}></Route>
           </Route>
         </Routes>
