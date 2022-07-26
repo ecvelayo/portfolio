@@ -16,11 +16,11 @@ class AppNavbar extends React.Component {
   }
   //sample of confirmation before component unmount
   shouldComponentUpdate() {
-    if (window.confirm('Do you want to delete the component?')){
-      return true;
-    }else{
-      return false;
-    }
+    // if (window.confirm('Do you want to delete the component?')){
+    //   return true;
+    // }else{
+    //   return false;
+    // }
   }
 
   render(){

@@ -21,9 +21,9 @@ class AppFooter extends Component {
   // }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({footer: 'Mounted footer value'});
-    }, 2000);
+    // setTimeout(() => {
+    //   this.setState({footer: 'Mounted footer value'});
+    // }, 2000);
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
