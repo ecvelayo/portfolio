@@ -10,8 +10,11 @@ function withParams(Component) {
 class AppHeader extends Component {
     //NOTES: SAMPLE FOR MOUNTING LIFECYCLE HOOKS
     params = {};
+    message = '';
     constructor(props) {
         super(props);
+        console.log(document.cookie);
+        this.getCookies('message');
         this.state = {
             header: 'Header Message'
         }
@@ -25,6 +28,15 @@ class AppHeader extends Component {
         }
     }
 
+    getCookies(name) {
+        document.cookie.split('; ').forEach((entry) => {
+            console.log(entry);
+            if (entry.split('=')[0] === name){
+                this.message = entry.split('=')[1]
+            }
+        })
+    }
+
     componentDidMount() {
         setTimeout(() => {
             this.setState({header: 'Now the state is changed.'})
@@ -33,6 +45,7 @@ class AppHeader extends Component {
 
     render() {
         const queryParams = new URLSearchParams(this.props.query.search);
+        this.setState({header: this.message});
         return (        
             <div className={styles.AppHeader}>
                 <h1>{this.state.header}</h1>
