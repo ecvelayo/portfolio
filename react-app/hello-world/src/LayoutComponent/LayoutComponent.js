@@ -22,12 +22,14 @@ class LayoutComponent extends App {
 
     getData = () => {
       setTimeout(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        fetch('http://localhost:8000/time')
         .then(result => 
           result.json()
         )
         .then((response) => {
-          this.setState({data: response.title});
+          localStorage.setItem('localStorageKey', response.time);
+          const localStorageObject = localStorage.getItem('localStorageKey');
+          this.setState({data: localStorageObject});
         })
       }, 5000);
     }

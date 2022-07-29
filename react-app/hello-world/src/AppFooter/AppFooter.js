@@ -28,17 +28,8 @@ class AppFooter extends Component {
     // }, 2000);
   }
 
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log(prevState, ' was the previous state value before the change.');
-  }
-
-  componentDidUpdate(){
-    console.log(this.state, ' is the actual value right now.');
-  }
-
   getCookies(name) {
     document.cookie.split('; ').forEach((entry) => {
-        console.log(entry);
         if (entry.split('=')[0] === name){
             this.message = entry.split('=')[1]
         }
