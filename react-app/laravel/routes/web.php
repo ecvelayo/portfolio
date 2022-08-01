@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return response()->json(['title' => 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit'], 200);
-});
+Route::get('/', 'Controller@helloWorld');
+Route::get('/tasks', 'Controller@getTasks');
 
-
-Route::get('/time', function () {
-    $time = Carbon\Carbon::now();
-    return response()->json(['time' => $time ]);
-});
+// Time Controller
+$route = '/time';
+Route::get($route.'/', 'TimeController@timeGetServerTime');
+Route::get($route.'/helloWorld', 'TimeController@timeHelloWorld');
