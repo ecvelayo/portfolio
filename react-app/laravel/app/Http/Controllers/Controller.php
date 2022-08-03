@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Tasks;
+use Carbon\Carbon;
 
 class Controller extends BaseController
 {
@@ -23,6 +24,18 @@ class Controller extends BaseController
     public function getTasks(){
         $tasks = Tasks::all();
         return $tasks;
+    }
+
+    public function postTask(Request $request){
+        $this->validate($request, [
+            'task' => 'required',
+        ]);
+
+        $task = new Tasks;
+        $task->tasks = $request->input('task');
+        $task->createdAt = Carbon::now();
+        $task->save();
+        return response()->json($task, 200);
     }
 
 

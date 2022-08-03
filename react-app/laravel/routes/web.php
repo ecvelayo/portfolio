@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Tasks Controller
 Route::get('/', 'Controller@helloWorld');
 Route::get('/tasks', 'Controller@getTasks');
+Route::post('/tasks', 'Controller@postTask');
 
 // Time Controller
 $route = '/time';
 Route::get($route.'/', 'TimeController@timeGetServerTime');
 Route::get($route.'/helloWorld', 'TimeController@timeHelloWorld');
+
+

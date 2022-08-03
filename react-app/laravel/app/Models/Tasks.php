@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ class Tasks extends Model
     // Table Name
     protected $table = 'timestamps';
 
-    public $tasks = 'tasks';
+    protected $fillable = ['task'];
 
-    public $createdAt = 'createdAt';
+    public $timestamps = false;
 }

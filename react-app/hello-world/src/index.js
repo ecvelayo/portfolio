@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LayoutComponent from './LayoutComponent/LayoutComponent';
 import AppHeader from './AppHeader/AppHeader';
 import AppFooter from './AppFooter/AppFooter';
+import TodoList from './TodoList/TodoList';
 
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route path="/">
             <Route index element={<LayoutComponent></LayoutComponent>}></Route>
             {/* <Route path="header" element={<AppHeader></AppHeader>}></Route> */}
+            <Route path="/tasks" element={<TodoList/>}></Route>
             <Route path="/:username" element={<AppHeader/>}></Route>
             <Route path="*" element={<AppFooter></AppFooter>}></Route>
           </Route>
