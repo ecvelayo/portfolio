@@ -37,7 +37,6 @@ class TodoList extends App {
     fetch('http://localhost:8000/tasks', requestOptions)
     .then(response => response.json())
     .then(data => {
-      this.getTasks();
       this.state.data.push(data);
       this.setState({
         data: this.state.data
@@ -47,6 +46,21 @@ class TodoList extends App {
 
   componentDidMount() {
     this.getTasks();
+  }
+
+  onEntryClick(entry) {
+    console.log(entry);
+    const requestOptions = {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(entry)
+    }
+
+    fetch('http://localhost:8000/tasks', requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
   }
 
   render() {
@@ -61,7 +75,7 @@ class TodoList extends App {
             <ul>
               {
                 this.state.data.map((element) => 
-                  <li>{element.tasks} - Created At : {element.createdAt}</li>
+                  <li onClick={() => {this.onEntryClick(element)}}>{element.tasks} - Created At : {element.createdAt}</li>
                 )
               }
             </ul>

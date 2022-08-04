@@ -9,7 +9,7 @@ class Tasks extends Model
     // Table Name
     protected $table = 'timestamps';
 
-    protected $fillable = ['task'];
+    protected $fillable = ['tasks'];
 
     public $timestamps = false;
 }

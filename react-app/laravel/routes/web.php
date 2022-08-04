@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Controller@helloWorld');
 Route::get('/tasks', 'Controller@getTasks');
 Route::post('/tasks', 'Controller@postTask');
+Route::delete('/tasks', 'Controller@deleteTask');
 
 // Time Controller
 $route = '/time';
