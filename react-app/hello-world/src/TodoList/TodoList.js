@@ -9,6 +9,7 @@ class TodoList extends App {
         data: []
       }
       this.submitData = this.submitData.bind(this);
+      this.onEntryClick = this.onEntryClick.bind(this);
   }
 
   getTasks() {
@@ -49,18 +50,24 @@ class TodoList extends App {
   }
 
   onEntryClick(entry) {
-    console.log(entry);
-    const requestOptions = {
-      method: 'DELETE',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(entry)
+    if (window.confirm('Delete this entry? '+JSON.stringify(entry))){
+      const requestOptions = {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(entry)
+      }
+  
+      fetch('http://localhost:8000/tasks', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        const index = this.state.data.indexOf(entry);
+        this.state.data.splice(index,1);
+        this.setState({
+          data: this.state.data
+        })
+      })
     }
-
-    fetch('http://localhost:8000/tasks', requestOptions)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-    })
+    
   }
 
   render() {

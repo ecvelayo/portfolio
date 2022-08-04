@@ -39,7 +39,7 @@ class Controller extends BaseController
     }
 
     public function deleteTask(Request $request){ 
-        $data = Tasks::where('createdAt', $request->input('createdAt'))->delete();
+        $data = Tasks::where('tasks', $request->input('tasks'))->delete();
         return response()->json($data);
     }
 
