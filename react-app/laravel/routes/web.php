@@ -18,6 +18,7 @@ Route::get('/', 'Controller@helloWorld');
 Route::get('/tasks', 'Controller@getTasks');
 Route::post('/tasks', 'Controller@postTask');
 Route::delete('/tasks', 'Controller@deleteTask');
+Route::patch('/tasks', 'Controller@updateTask');
 
 // Time Controller
 $route = '/time';

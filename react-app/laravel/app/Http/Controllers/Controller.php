@@ -22,7 +22,7 @@ class Controller extends BaseController
     }
 
     public function getTasks(){
-        $tasks = Tasks::all();
+        $tasks = Tasks::where('deleted', 0);
         return $tasks;
     }
 
@@ -33,13 +33,23 @@ class Controller extends BaseController
 
         $task = new Tasks;
         $task->tasks = $request->input('task');
-        $task->createdAt = Carbon::now();
         $task->save();
         return response()->json($task, 200);
     }
 
     public function deleteTask(Request $request){ 
-        $data = Tasks::where('tasks', $request->input('tasks'))->delete();
+        // $data = Tasks::find($request->input('id'))->delete();
+        // return response()->json($data);
+        $data = Tasks::find($request->input('id'));
+        $data->deleted = 1;
+        $data->save();
+        return response()->json($data);
+    }
+
+    public function updateTask(Request $request){
+        $data = Tasks::find($request->input('id'));
+        $data->tasks = $request->input('task');
+        $data->save();
         return response()->json($data);
     }
 
